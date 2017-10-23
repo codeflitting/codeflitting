@@ -18,5 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^quote/', include('codeflitting.quote.urls')),
     url(r'^', include('codeflitting.core.urls')),
 ]

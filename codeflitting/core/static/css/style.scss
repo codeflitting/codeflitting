@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
   min-height: 100%;
 }
 
@@ -14,21 +14,92 @@ body {
 }
 
 .home-container {
-  text-align: center;
   position: fixed;
-  top: 45%;
-  left: 50%;
-  width: 50%;
-  height: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  a {
-    color: #333333;
-    text-decoration: underline;
-  }
-  .avatar {
-    margin-bottom: 35px;
-    border-radius: 100px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .home-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    a {
+      color: #333333;
+      text-decoration: underline;
+    }
+    .avatar {
+      margin-bottom: 35px;
+      border-radius: 100px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
   }
 }
 
+header {
+  top: 0;
+  height: 59px;
+  width: 100%;
+  padding: 20px 0 0;
+  position: fixed;
+  .header-container {
+    position: relative;
+  }
+
+  .header-row {
+    margin-left: 30px;
+  }
+  .header-sider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 210px;
+    .sider-nav {
+      margin-top: 2rem;
+      font-size: 1.125rem;
+      a {
+        color: #222;
+        &:active, &:hover {
+          color: #0074bf;
+          text-decoration: none;
+        }
+      }
+      .scroller_y {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        margin-bottom: 60px;
+        .side_item {
+          display: block;
+          position: relative;
+          padding: 5px 0 1px 5px;
+          margin-right: 5px;
+          border-radius: 3px;
+          max-width: 190px;
+          font-size: .9375rem;
+          line-height: 1.75rem;
+          -webkit-transition: opacity 1.35s cubic-bezier(.075, .82, .165, 1);
+          -moz-transition: opacity 1.35s cubic-bezier(.075, .82, .165, 1);
+          transition: opacity 1.35s cubic-bezier(.075, .82, .165, 1);
+        }
+      }
+    }
+  }
+  .logo {
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
+    background-image: url(../img/logo.png);
+    width: 126px;
+    height: 27px;
+    margin-top: 3px;
+  }
+}
+
+footer {
+
+}

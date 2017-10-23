@@ -1,0 +1,40 @@
+{% extends 'quote/base.html' %}
+{% load static %}
+{% load compress %}
+
+{% if quote_title %}
+    {% block title %}{{ quote_title }} - {{ block.super }}{% endblock %}
+{% endif %}
+
+{% block content %}
+    <header>
+        <div class="container header-container">
+            <div class="row header-row">
+                <div class="col-2"></div>
+                <div class="col-10 nav-tabs" style="width: 100%">aaaaaaaaaaaaaaaaaaaaaaaaaaaaa</div>
+            </div>
+            <div class="header-sider">
+                <aside class="logo"><a href="/">Codeflitting</a></aside>
+                <div class="sider-nav">
+
+
+                    <div class="scroller_y">
+
+                        <a id="unread_nav" class="side_item " href="">
+                            <i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Home
+                        </a>
+                        <a id="unread_nav" class="side_item " href="">
+                            <i class="fa fa-home fa-fw fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Topic
+                        </a>
+                        <a id="unread_nav" class="side_item " href="">
+                            <i class="fa fa-user-o fa-fw fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Author
+                        </a>
+                        <a id="unread_nav" class="side_item " href="">
+                            <i class="fa fa-tags fa-fw fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;Tags
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}

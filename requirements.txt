@@ -1,0 +1,5 @@
+django==1.11.6
+django-crontab==0.7.1
+django_compressor==2.2
+django-libsass==0.7
+Unipath==1.1

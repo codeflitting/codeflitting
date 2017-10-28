@@ -2,5 +2,13 @@
 {% load static %}
 {% load compress %}
 
-
 {% block title %}Quote - {{ block.super }}{% endblock %}
+{% block content %}
+    {% include 'header/top.html' %}
+    <a class="py-2 hvr-forward" href="#"><i class="fa fa-fw fa-home" aria-hidden="true"></i> Home</a>
+    <a class="py-2 hvr-forward" href="#"><i class="fa fa-fw fa-sitemap" aria-hidden="true"></i> Topic</a>
+    <a class="py-2 hvr-forward" href="#"><i class="fa fa-fw fa-user" aria-hidden="true"></i> Author</a>
+    <a class="py-2 hvr-forward" href="#"><i class="fa fa-fw fa-fire" aria-hidden="true"></i> Top 10</a>
+    {% include 'header/middle.html' %}
+{% endblock %}
+

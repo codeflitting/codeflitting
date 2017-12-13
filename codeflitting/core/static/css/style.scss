@@ -10,7 +10,7 @@ body {
   text-shadow: rgba(169, 169, 169, 0.58) 0 2px 5px;
   margin: 0;
   height: 100%;
-  font-size: smaller;
+  font-size: 13.75px;
   padding-bottom: 50px;
   font-family: jaf-bernina-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
@@ -28,7 +28,7 @@ a {
   text-align: center;
   font-size: initial;
   width: 100%;
-  height: 100%;
+  height: 80%;
   top: 0;
   left: 0;
   .home-content {
@@ -52,8 +52,20 @@ a {
   }
 }
 
+@media (max-width: 576px) {
+  .hidden-sm {
+    display: none !important
+  }
+}
+
 @media (max-width: 767px) {
-  .hidden-xs {
+  .hidden-md {
+    display: none !important
+  }
+}
+
+@media (max-width: 991px) {
+  .hidden-lg {
     display: none !important
   }
 }

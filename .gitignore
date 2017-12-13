@@ -104,3 +104,4 @@ ENV/
 .idea
 staticfile
 db.sqlite3
+codeflitting/quote/migrations/0001*

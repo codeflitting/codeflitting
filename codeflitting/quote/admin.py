@@ -3,7 +3,7 @@ from codeflitting.quote.models import Wisdom, Joke, WisdomTag
 
 
 class WisdomAdmin(admin.ModelAdmin):
-    list_display = ['author', 'content', 'created_time', 'last_modified_time']
+    list_display = ['author', 'english', 'chinese', 'created_time', 'last_modified_time']
     ordering = ['author']
 
 

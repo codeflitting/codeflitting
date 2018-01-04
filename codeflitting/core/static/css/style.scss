@@ -7,12 +7,14 @@ html, body {
 }
 
 body {
+  text-shadow: rgba(169, 169, 169, 0.58) 0 2px 5px;
   margin: 0;
   height: 100%;
   font-size: 13.75px;
   padding-bottom: 50px;
   font-family: jaf-bernina-sans, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  background-color: #fdfdfe;
 }
 
 a {
@@ -23,7 +25,6 @@ a {
 }
 
 .home-container {
-  text-shadow: rgba(169, 169, 169, 0.58) 0 2px 5px;
   position: fixed;
   text-align: center;
   font-size: initial;

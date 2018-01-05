@@ -6,6 +6,14 @@ html, body {
   min-height: 100%;
 }
 
+@font-face {
+  font-family: 'Kaushan Script';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Kaushan Script'), local('KaushanScript-Regular'),
+  url(../fonts/kaushan.woff) format('woff');
+}
+
 body {
   text-shadow: rgba(169, 169, 169, 0.58) 0 2px 5px;
   margin: 0;
@@ -21,6 +29,15 @@ a {
   color: #2e3133;
   &:hover {
     text-decoration: none;
+  }
+}
+
+.site-name {
+  color: #333;
+  font: normal 28px / 1.6 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial;
+  text-transform: capitalize;
+  span {
+    color: #888;
   }
 }
 

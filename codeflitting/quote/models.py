@@ -18,5 +18,12 @@ class WisdomTag(BaseModel):
         return self.name
 
 
+class Navbar(BaseModel):
+    order = models.PositiveIntegerField('顺序', default=0)
+    name = models.CharField("导航名", max_length=20)
+    icon = models.CharField("图标", max_length=20)
+    href = models.CharField("地址", max_length=20)
+
+
 class Joke(BaseModel):
     content = models.TextField('笑话')

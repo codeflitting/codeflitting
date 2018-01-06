@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from codeflitting.quote.models import Wisdom, WisdomTag, Joke
+from codeflitting.quote.models import Wisdom, WisdomTag, Joke, Navbar
 
 
 class WisdomListView(ListView):
@@ -17,6 +17,6 @@ class WisdomListView(ListView):
 
         return wisdom_list
 
-        # def get_context_data(self, **kwargs):
-        #     kwargs['category_list'] = Category.objects.order_by('order')
-        #     return super(ArticleListView, self).get_context_data(**kwargs)
+    def get_context_data(self, **kwargs):
+        kwargs['navbar'] = Navbar.objects.order_by('order')
+        return super(WisdomListView, self).get_context_data(**kwargs)

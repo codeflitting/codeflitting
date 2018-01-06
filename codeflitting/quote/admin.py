@@ -1,5 +1,5 @@
 from django.contrib import admin
-from codeflitting.quote.models import Wisdom, Joke, WisdomTag
+from codeflitting.quote.models import Wisdom, Joke, WisdomTag, Navbar
 
 
 class WisdomAdmin(admin.ModelAdmin):
@@ -12,6 +12,12 @@ class JokeAdmin(admin.ModelAdmin):
     ordering = ['last_modified_time']
 
 
+class NavbarAdmin(admin.ModelAdmin):
+    list_display = ['name', 'icon', 'href', 'order']
+    list_editable = ['href', 'order']
+
+
 admin.site.register(Wisdom, WisdomAdmin)
 admin.site.register(WisdomTag)
 admin.site.register(Joke, JokeAdmin)
+admin.site.register(Navbar, NavbarAdmin)

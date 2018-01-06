@@ -3,15 +3,22 @@ from codeflitting.core.models import BaseModel
 
 
 class Wisdom(BaseModel):
-    author = models.CharField('作者', max_length=50)
     english = models.TextField('格言-英文')
     chinese = models.TextField('格言-中文')
     views = models.PositiveIntegerField('浏览量', default=0)
     likes = models.PositiveIntegerField('点赞数', default=0)
-    tags = models.ManyToManyField('WisdomTag', verbose_name='标签', blank=True)
+    author = models.ForeignKey('Author', verbose_name='作者', blank=True)
+    tags = models.ManyToManyField('Tag', verbose_name='标签', blank=True)
 
 
-class WisdomTag(BaseModel):
+class Author(BaseModel):
+    name = models.CharField('作者', max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Tag(BaseModel):
     name = models.CharField('标签名', max_length=20)
 
     def __str__(self):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from codeflitting.quote.models import Wisdom, Joke, WisdomTag, Navbar
+from codeflitting.quote.models import Wisdom, Joke, Tag, Navbar, Author
 
 
 class WisdomAdmin(admin.ModelAdmin):
@@ -18,6 +18,7 @@ class NavbarAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Wisdom, WisdomAdmin)
-admin.site.register(WisdomTag)
-admin.site.register(Joke, JokeAdmin)
 admin.site.register(Navbar, NavbarAdmin)
+admin.site.register(Joke, JokeAdmin)
+admin.site.register(Tag)
+admin.site.register(Author)

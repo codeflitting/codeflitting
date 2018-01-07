@@ -44,7 +44,7 @@
                             <div class="col-12 col-md-10">
                                 <p style="font-size: larger">
                                     {% for author in authors %}
-                                        <a href="{% url 'quote-author' author.id %}">{{ author }}</a>
+                                        <a class="hvr-grow" href="{% url 'quote-author' author.id %}">{{ author }}</a>
                                     {% endfor %}
                                 </p>
                             </div>
@@ -66,7 +66,7 @@
                             <div class="col-10">
                                 <p style="font-size: larger">
                                     {% for tag in tags %}
-                                        <a href="{% url 'quote-tag' tag.id %}">{{ tag }}</a>
+                                        <a class="hvr-grow" href="{% url 'quote-tag' tag.id %}">{{ tag }}</a>
                                     {% endfor %}
                                 </p>
                             </div>

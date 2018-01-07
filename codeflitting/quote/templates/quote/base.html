@@ -3,6 +3,13 @@
 {% load compress %}
 
 {% block title %}Quote - {{ block.super }}{% endblock %}
+{% block css %}
+    {{ block.super }}
+    {% compress css %}
+        <link href="{% static 'css/quote/quote.scss' %}" type="text/x-scss" rel="stylesheet"/>
+    {% endcompress %}
+{% endblock %}
+
 {% block content %}
 
 {% endblock %}

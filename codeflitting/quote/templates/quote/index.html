@@ -17,8 +17,8 @@
     <div class="container">
         <div class="row py-4 hidden-md"></div>
         <div class="row py-4">
-            <div class="col-md-2 hidden-sm"></div>
-            <div class="col-12 col-md-10" style="display: block;background-color: #fdfdfe   ">
+            <div class="col-md-2 hidden-lg"></div>
+            <div class="col-12 col-lg-10" style="display: block;background-color: #fdfdfe   ">
                 {% for wisdom in wisdom_list %}
                     <div class="py-3 nav-tabs">
                         <div class="row">
@@ -26,7 +26,7 @@
                                 <p style="font-size: larger">{{ wisdom.english }}</p>
                                 <p class="list-group-item-light">{{ wisdom.chinese }}</p>
                             </div>
-                            <div class="col-2 hidden-lg" style="display: inline-grid;">
+                            <div class="col-2 hidden-md" style="display: inline-grid;">
                                 <a class="card text-center text-white bg-secondary" href="#"
                                    style="margin:auto;width: 80px;height: 80px;background: #b7b7b7;">
                                     <h5 class="card-title" style="margin: auto;">
@@ -38,7 +38,6 @@
                     </div>
                 {% endfor %}
                 {% for letter, authors in author_list.items %}
-
                     <div class="py-3 nav-tabs">
                         <div class="row">
                             <div class="col-12 col-md-10">
@@ -48,7 +47,7 @@
                                     {% endfor %}
                                 </p>
                             </div>
-                            <div class="col-2 hidden-lg" style="display: inline-grid;">
+                            <div class="col-2 hidden-md" style="display: inline-grid;">
                                 <a class="card text-center text-white bg-secondary" href="#"
                                    style="margin:auto;width: 80px;height: 80px;background: #b7b7b7;">
                                     <h5 class="card-title" style="margin: auto;">
@@ -63,14 +62,14 @@
                 {% for letter, tags in tag_list.items %}
                     <div class="py-3 nav-tabs">
                         <div class="row">
-                            <div class="col-10">
+                            <div class="col-12 col-md-10 ">
                                 <p style="font-size: larger">
                                     {% for tag in tags %}
                                         <a class="hvr-grow" href="{% url 'quote-tag' tag.id %}">{{ tag }}</a>
                                     {% endfor %}
                                 </p>
                             </div>
-                            <div class="col-2" style="display: inline-grid;">
+                            <div class="col-2 hidden-md" style="display: inline-grid;">
                                 <a class="card text-center text-white bg-secondary" href="#"
                                    style="margin:auto;width: 80px;height: 80px;background: #b7b7b7;">
                                     <h5 class="card-title" style="margin: auto;">
@@ -81,8 +80,6 @@
                         </div>
                     </div>
                 {% endfor %}
-
-
             </div>
         </div>
     </div>

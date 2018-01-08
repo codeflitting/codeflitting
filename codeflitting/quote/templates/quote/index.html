@@ -18,7 +18,7 @@
         <div class="row py-4 hidden-md"></div>
         <div class="row py-4">
             <div class="col-md-2 hidden-sm"></div>
-            <div class="col-12 col-md-10" style="display: block">
+            <div class="col-12 col-md-10" style="display: block;background-color: #fdfdfe   ">
                 {% for wisdom in wisdom_list %}
                     <div class="py-3 nav-tabs">
                         <div class="row">
@@ -44,7 +44,7 @@
                             <div class="col-12 col-md-10">
                                 <p style="font-size: larger">
                                     {% for author in authors %}
-                                        <a class="hvr-float-shadow" href="{% url 'quote-author' author.id %}">{{ author }}</a>
+                                        <a class="hvr-pulse-grow" href="{% url 'quote-author' author.id %}">{{ author }}</a>
                                     {% endfor %}
                                 </p>
                             </div>

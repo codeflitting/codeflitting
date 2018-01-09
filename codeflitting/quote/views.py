@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from codeflitting.quote.models import Wisdom, Tag, Joke, Navbar, Author
 
@@ -9,12 +8,14 @@ class BaseListView(ListView):
     def get_context_data(self, **kwargs):
         kwargs['navbar'] = Navbar.objects.order_by('order')
         kwargs['site_name'] = 'quotes'
+        kwargs['site_url'] = 'quote-index'
         return super(BaseListView, self).get_context_data(**kwargs)
 
 
 class WisdomListView(BaseListView):
     template_name = 'quote/index.html'
     context_object_name = 'wisdom_list'
+    paginate_by = 15
 
     def get_queryset(self):
         if 'tag_id' in self.kwargs:

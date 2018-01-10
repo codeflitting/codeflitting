@@ -25,9 +25,18 @@
                             <div class="col-12 col-md-10">
                                 <p style="font-size: larger">{{ wisdom.english }}</p>
                                 <p class="list-group-item-light">{{ wisdom.chinese }}</p>
+                                {% if wisdom.tags %}
+                                    <div style="margin-bottom: -15px;">
+                                        {% for tag in wisdom.tags.all %}
+                                            <a class="hvr-bounce-in" href="{% url 'quote-tag' tag.id %}">
+                                                <span class="badge badge-secondary badge-pill"> {{ tag }}</span>
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
                             </div>
                             <div class="col-2 hidden-md" style="display: inline-grid;">
-                                <a class="card text-center text-white bg-secondary" href="#"
+                                <a class="card text-center text-white bg-secondary" href="{% url 'quote-author' wisdom.author.id %}"
                                    style="margin:auto;width: 80px;height: 80px;background: #b7b7b7;">
                                     <h5 class="card-title" style="margin: auto;">
                                         {{ wisdom.author }}

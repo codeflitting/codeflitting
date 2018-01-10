@@ -4,6 +4,11 @@ from codeflitting.quote.models import Wisdom, Joke, Tag, Navbar, Author
 
 class WisdomAdmin(admin.ModelAdmin):
     list_display = ['author', 'english', 'chinese', 'created_time', 'last_modified_time']
+
+    date_hierarchy = 'created_time'
+    list_filter = ['created_time']
+    # search_fields = ['author']
+    filter_horizontal = ('tags',)
     ordering = ['author']
 
 

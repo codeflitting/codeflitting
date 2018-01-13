@@ -16,7 +16,13 @@
             <div class="nav-tabs" style="height: 65px;">
                 <br>
                 <br>
-                <i class="fa fa-search" aria-hidden="true"> </i>
+                <form method="get" action="">
+                    <input name="q" type="search" class="form-control ds-input" id="search-input" placeholder="{{ search }}"
+                           aria-label="Search for..."
+                           autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false"
+                           aria-labelledby="search-input" aria-owns="algolia-autocomplete-listbox-0" dir="auto"
+                           style="border-top: none; border-left: none; border-right: none; border-radius: 0px;background-color: #fdfdfe;">
+                </form>
             </div>
         </div>
     </div>

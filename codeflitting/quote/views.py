@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView
 from codeflitting.quote.models import Wisdom, Tag, Joke, Navbar, Author
+from django.db.models import Q
 
 
 class BaseListView(ListView):
@@ -9,13 +10,16 @@ class BaseListView(ListView):
         kwargs['navbar'] = Navbar.objects.order_by('order')
         kwargs['site_name'] = 'quotes'
         kwargs['site_url'] = 'quote-index'
+        kwargs['search'] = 'Search...'
+        query = self.request.GET.get('q', None)
+        if query:
+            kwargs['search'] = query
         return super(BaseListView, self).get_context_data(**kwargs)
 
 
 class WisdomListView(BaseListView):
-    template_name = 'quote/index.html'
     context_object_name = 'wisdom_list'
-    paginate_by = 15
+    paginate_by = 20
 
     def get_queryset(self):
         if 'tag_id' in self.kwargs:
@@ -25,11 +29,10 @@ class WisdomListView(BaseListView):
         else:
             wisdom_list = Wisdom.objects.all()
 
+        query = self.request.GET.get('q', None)
+        if query:
+            wisdom_list = wisdom_list.filter(Q(english__contains=query) | Q(chinese__contains=query))
         return wisdom_list
-
-    def get_context_data(self, **kwargs):
-        kwargs['navbar'] = Navbar.objects.order_by('order')
-        return super(WisdomListView, self).get_context_data(**kwargs)
 
 
 class AuthorListView(BaseListView):
@@ -38,7 +41,11 @@ class AuthorListView(BaseListView):
 
     def get_queryset(self):
         author_list = {}
-        for author in Author.objects.all():
+        authors = Author.objects.all()
+        query = self.request.GET.get('q', None)
+        if query:
+            authors = authors.filter(name__contains=query)
+        for author in authors:
             key = author.name[0]
             if key in author_list:
                 author_list[key] = author_list[key] + [author]
@@ -49,14 +56,12 @@ class AuthorListView(BaseListView):
 
 class TagListView(BaseListView):
     template_name = 'quote/index.html'
+    model = Tag
     context_object_name = 'tag_list'
 
     def get_queryset(self):
-        tag_list = {}
-        for tag in Tag.objects.all():
-            key = tag.name[0]
-            if key in tag_list:
-                tag_list[key] = tag_list[key] + [tag]
-            else:
-                tag_list[key] = [tag]
+        tag_list = Tag.objects.all()
+        query = self.request.GET.get('q', None)
+        if query:
+            tag_list = tag_list.filter(name__contains=query)
         return tag_list

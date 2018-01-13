@@ -1,10 +1,13 @@
 from codeflitting.quote.models import Author, Wisdom, Tag
 
+
 # english----chinese----tag1,tag2----author
 
 
 def get_tag_set(s):
     result = set()
+    if s == '':
+        return result
     for tag_name in s.split(','):
         t = Tag.objects.get_or_create(name=tag_name)
         result.add(t[0])
@@ -41,7 +44,8 @@ def insert_data(file_path):
             english, chinese, tags, author = line.split('#')[:4]
             tags = get_tag_set(tags)
             wisdom = get_wisdom(english, chinese)
-            author = Author.objects.get_or_create(name=author)[0]
-            wisdom.author = author
+            if author != '':
+                author = Author.objects.get_or_create(name=author)[0]
+                wisdom.author = author
             wisdom.save()
             wisdom.tags.set(tags)

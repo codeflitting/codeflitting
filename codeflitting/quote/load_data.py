@@ -48,4 +48,5 @@ def insert_data(file_path):
                 author = Author.objects.get_or_create(name=author)[0]
                 wisdom.author = author
             wisdom.save()
-            wisdom.tags.set(tags)
+            if len(tags) > 0:
+                wisdom.tags.set(tags)

@@ -26,7 +26,7 @@
                                 <p style="font-size: larger">{{ wisdom.english }}</p>
                                 <p class="list-group-item-light">{{ wisdom.chinese }}</p>
                                 <div style="margin-bottom: -15px;">
-                                    {% if wisdom.author.name != '' %}
+                                    {% if wisdom.author %}
                                         <a class="hvr-bounce-in" href="{% url 'quote-author' wisdom.author.id %}">
                                             <span class="badge badge-secondary badge-pill"> Author:{{ wisdom.author }}</span>
                                         </a>

@@ -53,6 +53,10 @@ class AuthorListView(BaseListView):
                 author_list[key] = [author]
         return author_list
 
+    def get_context_data(self, **kwargs):
+        kwargs['title'] = 'Authors - '
+        return super(AuthorListView, self).get_context_data(**kwargs)
+
 
 class TagListView(BaseListView):
     template_name = 'quote/index.html'
@@ -65,3 +69,7 @@ class TagListView(BaseListView):
         if query:
             tag_list = tag_list.filter(name__contains=query)
         return tag_list
+
+    def get_context_data(self, **kwargs):
+        kwargs['title'] = 'Tags - '
+        return super(TagListView, self).get_context_data(**kwargs)

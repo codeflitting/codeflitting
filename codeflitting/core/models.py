@@ -9,3 +9,7 @@ class BaseModel(models.Model):
         # 定义抽象类,用它来归纳一些公共属性字段
         ordering = ['-last_modified_time']
         abstract = True
+
+
+class SiteMapModel(models.Model):
+    url = models.TextField('url')

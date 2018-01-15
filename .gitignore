@@ -105,3 +105,4 @@ ENV/
 staticfile
 db.sqlite3
 codeflitting/quote/migrations/000*
+codeflitting/core/migrations/000*

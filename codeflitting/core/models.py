@@ -11,5 +11,5 @@ class BaseModel(models.Model):
         abstract = True
 
 
-class SiteMapModel(models.Model):
+class Sitemap(BaseModel):
     url = models.TextField('url')

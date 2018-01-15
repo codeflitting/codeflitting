@@ -55,6 +55,8 @@ class AuthorListView(BaseListView):
 
     def get_context_data(self, **kwargs):
         kwargs['title'] = 'Authors - '
+        kwargs['keydords'] = ','.join([author.name for author in Author.objects.all()])
+        kwargs['descrip'] = '-作者'
         return super(AuthorListView, self).get_context_data(**kwargs)
 
 
@@ -72,4 +74,6 @@ class TagListView(BaseListView):
 
     def get_context_data(self, **kwargs):
         kwargs['title'] = 'Tags - '
+        kwargs['keydords'] = ','.join([tag.name for tag in Tag.objects.all()])
+        kwargs['descrip'] = '-标签'
         return super(TagListView, self).get_context_data(**kwargs)

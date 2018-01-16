@@ -15,9 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.contrib.sitemaps import GenericSitemap
+from django.contrib.sitemaps.views import sitemap
+
+from codeflitting.quote.models import Author as QuoteAuthor
+from codeflitting.quote.models import Tag as QuoteTag
+
+sitemaps = {
+    'quote:author': GenericSitemap({'queryset': QuoteAuthor.objects.all(), 'date_field': 'last_modified_time'}, priority=0.6),
+    'quote:tag'   : GenericSitemap({'queryset': QuoteTag.objects.all(), 'date_field': 'last_modified_time'}, priority=0.6),
+    # 如果还要加其它的可以模仿上面的
+}
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^quote/', include('codeflitting.quote.urls')),
+    url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
     url(r'^', include('codeflitting.core.urls')),
 ]

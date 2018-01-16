@@ -2,6 +2,7 @@ from django.db import models
 from codeflitting.core.models import BaseModel
 
 
+
 class Wisdom(BaseModel):
     english = models.TextField('格言-英文')
     chinese = models.TextField('格言-中文')
@@ -16,6 +17,8 @@ class Author(BaseModel):
 
     def __str__(self):
         return self.name
+
+
 
 
 class Tag(BaseModel):

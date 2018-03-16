@@ -11,6 +11,10 @@ class WisdomAdmin(admin.ModelAdmin):
     filter_horizontal = ('tags',)
     ordering = ['author']
 
+    # def get_fields(self, request, obj=None):
+    # Admin新建Ariticle 需要显示的可编辑的字段
+    # return [['author', 'views', 'likes'], ['english', 'chinese'], 'tags']
+
 
 class JokeAdmin(admin.ModelAdmin):
     list_display = ['content', 'created_time', 'last_modified_time']

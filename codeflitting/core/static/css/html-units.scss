@@ -93,14 +93,24 @@
 //header
 .site-name {
   color: #ffffff;
-  font: normal 30px / 1.6 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial;
+  font: normal 23px / 1.6 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial;
   text-transform: capitalize;
   span {
     color: rgba(218, 218, 218, 0.53);
   }
 }
 
+.slider {
+  position: absolute;
+  background: #fdfdfe;
+  width: 85%;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-top: 16px;
+}
+
 .form-search {
+  //padding-top: 20px;
   color: #fff;
   border-width: 0;
   border-radius: 0;

@@ -25,7 +25,24 @@ body {
 a {
   color: #2e3133;
   &:hover {
-    text-decoration: none;
+    //text-decoration: none;
   }
 }
 
+@media (max-width: 576px) {
+  .hidden-sm {
+    display: none !important
+  }
+}
+
+@media (max-width: 767px) {
+  .hidden-md {
+    display: none !important
+  }
+}
+
+@media (max-width: 991px) {
+  .hidden-lg {
+    display: none !important
+  }
+}

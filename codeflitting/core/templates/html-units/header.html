@@ -2,18 +2,18 @@
 <div class="fixed-top bg-dark">
     <div class="container">
         <div class="row">
-            <div class="col-2">
-                <a class="site-name" href="{% url site_url %}">
-                    {{ site_name }}
-                </a>
-                <ul class="list-group hidden-lg slider">
+            <div class="col-2 hidden-md">
+                <div class="site-name">
+                    <a href="{% url site_url %}"> {{ site_name }}</a>
+                </div>
+                <ul class="list-group slider">
                     {% for nav in navbar %}
                         <a class="py-2 pl-2 hvr-forward" href="{% url nav.href %}"><i class="{{ nav.icon }}" aria-hidden="true"></i> {{ nav.name }}
                         </a>
                     {% endfor %}
                 </ul>
             </div>
-            <div class="col-10">
+            <div class="col-12 col-md-10">
                 <form method="get" action="" style="margin-left: -15px;margin-right: -15px;">
                     <input name="q" type="search" class="form-control ds-input form-search" id="search-input" placeholder="{{ search }}"
                            aria-label="Search for..."

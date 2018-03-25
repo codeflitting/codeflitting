@@ -1,0 +1,26 @@
+{% load static %}
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0" style="height: 38px">
+    <div class="container">
+        <div class="row" style="display: contents;">
+            <div class="col-2">
+                <a class="navbar-brand py-1 hidden-lg" href="{% url site_url %}">
+                    <h4 class="site-name">{{ site_name }}</h4>
+                </a>
+                <ul class="list-group py-2 hidden-lg"
+                    style="position: absolute; background: #fdfdfe; width: 80%;border-radius: 5px;  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
+                    {% for nav in navbar %}
+                        <a class="py-2 hvr-forward" href="{% url nav.href %}"><i class="{{ nav.icon }}" aria-hidden="true"></i> {{ nav.name }}</a>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-10">
+                <form method="get" action="">
+                    <input name="q" type="search" class="form-control ds-input form-search" id="search-input" placeholder="Search"
+                           aria-label="Search for..."
+                           autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false"
+                           aria-labelledby="search-input" aria-owns="algolia-autocomplete-listbox-0" dir="auto">
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>

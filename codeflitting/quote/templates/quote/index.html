@@ -12,13 +12,13 @@
 
 {% block content %}
     {{ block.super }}
-    {% include 'header.html' %}
+    {% include 'html-units/header.html' %}
 
     <div class="container">
         <div class="row py-4"></div>
-        <div class="row py-4">
-            <div class="col-md-2 hidden-lg"></div>
-            <div class="col-12 col-lg-10" style="display: block;background-color: #fdfdfe   ">
+        <div class="row py-1">
+            <div class="col-2"></div>
+            <div class="col-10" style="display: block;background-color: #fdfdfe   ">
                 {% for wisdom in wisdom_list %}
                     <div class="py-3 nav-tabs">
                         <div class="row">

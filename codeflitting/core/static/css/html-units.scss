@@ -1,3 +1,34 @@
+//home style
+.home-container {
+  background: #fff;
+  position: fixed;
+  text-align: center;
+  font-size: initial;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  .home-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+    a {
+      color: #333333;
+      text-decoration: underline;
+    }
+    .avatar {
+      margin-bottom: 35px;
+      border-radius: 100px;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+
 /*A pure CSS-only responsive masonry grid*/
 .masonry {
   -webkit-column-count: 4;
@@ -18,7 +49,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    box-shadow: 2px 2px 4px 0 #ccc;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     background: #efefef;
     p {
       margin: 1rem 0;
@@ -59,3 +90,26 @@
   }
 }
 
+//header
+.site-name {
+  color: #ffffff;
+  font: normal 30px / 1.6 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial;
+  text-transform: capitalize;
+  span {
+    color: rgba(218, 218, 218, 0.53);
+  }
+}
+
+.form-search {
+  color: #fff;
+  border-width: 0;
+  border-radius: 0;
+  background-color: #494f54;
+}
+
+.form-search:focus {
+  border-color: transparent;
+  color: #686868;
+  box-shadow: none;
+  //background: #92c7d6;
+}

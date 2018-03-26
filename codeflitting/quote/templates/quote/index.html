@@ -27,13 +27,13 @@
                                 <div style="margin-bottom: -15px;">
                                     {% if wisdom.author %}
                                         <a class="hvr-bounce-in" href="{% url 'quote-author' wisdom.author.id %}">
-                                            <span class="badge badge-secondary badge-pill"> {{ wisdom.author }}</span>
+                                            <span>{{ wisdom.author }}</span>
                                         </a>
                                     {% endif %}
                                     {% if wisdom.tags %}
                                         {% for tag in wisdom.tags.all %}
                                             <a class="hvr-bounce-in" href="{% url 'quote-tag' tag.id %}">
-                                                <span class="badge badge-pill badge-secondary"> {{ tag }}</span>
+                                                <span>{{ tag }}</span>
                                             </a>
                                         {% endfor %}
                                     {% endif %}

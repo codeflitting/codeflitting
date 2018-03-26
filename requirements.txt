@@ -3,3 +3,5 @@ django-crontab==0.7.1
 django_compressor==2.2
 django-libsass==0.7
 Unipath==1.1
+psycopg2==2.7.4
+uwsgi=2.0.17

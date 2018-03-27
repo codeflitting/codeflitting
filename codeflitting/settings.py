@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'codeflitting',
         'USER': 'postgres',
-        'PASSWORD': '',
+        'PASSWORD': '123456',
         'HOST': '',
         'PORT': '',
     }

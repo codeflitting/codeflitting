@@ -1,4 +1,4 @@
-from codeflitting.quote.models import Author, Wisdom, Tag
+from codeflitting.quote.models import Author, Wisdom, Tag, Topic
 
 
 # english----chinese----tag1,tag2----author
@@ -41,12 +41,15 @@ def insert_data(file_path):
     with open(file_path) as f:
         for line in f.readlines():
             line = line.strip('\n')
-            english, chinese, tags, author = line.split('#')[:4]
-            tags = get_tag_set(tags)
+            english, chinese, author, topic = line.split('###')[:4]
             wisdom = get_wisdom(english, chinese)
             if author != '':
                 author = Author.objects.get_or_create(name=author)[0]
                 wisdom.author = author
+            if topic != '':
+                topic = Topic.objects.get_or_create(name=topic)[0]
+                wisdom.topic = topic
             wisdom.save()
-            if len(tags) > 0:
-                wisdom.tags.set(tags)
+            # tags = get_tag_set(tags)
+            # if len(tags) > 0:
+            #    wisdom.tags.set(tags)

@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from codeflitting.quote.models import Wisdom, Tag, Joke, Navbar, Author
+from codeflitting.quote.models import Wisdom, Tag, Navbar, Author
 from django.db.models import Q
 
 

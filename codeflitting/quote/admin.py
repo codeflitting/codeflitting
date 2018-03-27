@@ -1,9 +1,9 @@
 from django.contrib import admin
-from codeflitting.quote.models import Wisdom, Joke, Tag, Navbar, Author
+from codeflitting.quote.models import Wisdom, Tag, Navbar, Author, Topic
 
 
 class WisdomAdmin(admin.ModelAdmin):
-    list_display = ['author', 'english', 'chinese', 'created_time', 'last_modified_time']
+    list_display = ['author', 'Topic', 'english', 'chinese', 'created_time', 'last_modified_time']
 
     date_hierarchy = 'created_time'
     list_filter = ['created_time']
@@ -16,11 +16,6 @@ class WisdomAdmin(admin.ModelAdmin):
     # return [['author', 'views', 'likes'], ['english', 'chinese'], 'tags']
 
 
-class JokeAdmin(admin.ModelAdmin):
-    list_display = ['content', 'created_time', 'last_modified_time']
-    ordering = ['last_modified_time']
-
-
 class NavbarAdmin(admin.ModelAdmin):
     list_display = ['name', 'icon', 'href', 'order']
     list_editable = ['href', 'order']
@@ -28,6 +23,6 @@ class NavbarAdmin(admin.ModelAdmin):
 
 admin.site.register(Wisdom, WisdomAdmin)
 admin.site.register(Navbar, NavbarAdmin)
-admin.site.register(Joke, JokeAdmin)
 admin.site.register(Tag)
 admin.site.register(Author)
+admin.site.register(Topic)

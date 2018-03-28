@@ -28,13 +28,19 @@
                                 {% if wisdom.chinese %}
                                     <p class="list-group-item-light">{{ wisdom.chinese }}</p>
                                 {% endif %}
-                                <div style="bottom: -15px;position: absolute;">
+                                <div style="bottom: -15px;position: absolute; font-size: smaller;">
+                                    <i class="fa fa-fw fa-calendar-check-o"></i>
+                                    {{ wisdom.last_modified_time | date:"F j" }}
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% if wisdom.author %}
+                                        <i class="fa fa-fw fa-user"></i>
                                         <a class="hvr-bounce-in" href="{% url 'quote-author' wisdom.author.id %}">
                                             <span>{{ wisdom.author }}</span>
                                         </a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% endif %}
-                                    {% if wisdom.tags %}
+                                    {% if wisdom.tags.all %}
+                                        <i class="fa fa-fw fa-tags"></i>
                                         {% for tag in wisdom.tags.all %}
                                             <a class="hvr-bounce-in" href="{% url 'quote-tag' tag.id %}">
                                                 <span>{{ tag }}</span>
@@ -47,7 +53,7 @@
                                 <div class="card text-center text-white bg-secondary"
                                      style="margin:auto;width: 80px;height: 80px;background: #b7b7b7;">
                                     <h5 class="card-title" style="margin: auto;">
-                                        {{ wisdom.created_time |date:"Y m/d" }}
+                                        <a style="color:#ffffff" href="{% url 'quote-topic' wisdom.topic.id %}">{{ wisdom.topic }}</a>
                                     </h5>
                                 </div>
                             </div>
@@ -107,6 +113,19 @@
                                 <p style="font-size: larger">
                                     {% for tag in tag_list %}
                                         <a class="hvr-grow" href="{% url 'quote-tag' tag.id %}">{{ tag }}</a>
+                                    {% endfor %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if topic_list %}
+                    <div class="py-3 nav-tabs">
+                        <div class="row">
+                            <div class="col-12">
+                                <p style="font-size: larger">
+                                    {% for topic in topic_list %}
+                                        <a class="hvr-grow" href="{% url 'quote-topic' topic.id %}">{{ topic }}</a>
                                     {% endfor %}
                                 </p>
                             </div>

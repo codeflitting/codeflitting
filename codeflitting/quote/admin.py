@@ -3,7 +3,7 @@ from codeflitting.quote.models import Wisdom, Tag, Navbar, Author, Topic
 
 
 class WisdomAdmin(admin.ModelAdmin):
-    list_display = ['author', 'Topic', 'english', 'chinese', 'created_time', 'last_modified_time']
+    list_display = ['author', 'topic', 'english', 'chinese', 'created_time', 'last_modified_time']
 
     date_hierarchy = 'created_time'
     list_filter = ['created_time']

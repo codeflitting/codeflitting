@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from codeflitting.quote.models import Wisdom, Tag, Navbar, Author
+from codeflitting.quote.models import Wisdom, Tag, Navbar, Author, Topic
 from django.db.models import Q
 
 
@@ -26,6 +26,8 @@ class WisdomListView(BaseListView):
             wisdom_list = Wisdom.objects.filter(tags__in=[self.kwargs.get('tag_id')])
         elif 'author_id' in self.kwargs:
             wisdom_list = Wisdom.objects.filter(author=self.kwargs.get('author_id'))
+        elif 'topic_id' in self.kwargs:
+            wisdom_list = Wisdom.objects.filter(topic=self.kwargs.get('topic_id'))
         else:
             wisdom_list = Wisdom.objects.all()
 
@@ -56,8 +58,27 @@ class AuthorListView(BaseListView):
     def get_context_data(self, **kwargs):
         kwargs['title'] = 'Authors - '
         kwargs['keydords'] = ','.join([author.name for author in Author.objects.all()])
-        kwargs['descrip'] = '-作者'
+        kwargs['descrip'] = '-author'
         return super(AuthorListView, self).get_context_data(**kwargs)
+
+
+class TopicListView(BaseListView):
+    template_name = 'quote/index.html'
+    model = Topic
+    context_object_name = 'topic_list'
+
+    def get_queryset(self):
+        topic_list = Topic.objects.all()
+        query = self.request.GET.get('q', None)
+        if query:
+            topic_list = topic_list.filter(name__contains=query)
+        return topic_list
+
+    def get_context_data(self, **kwargs):
+        kwargs['title'] = 'Tags - '
+        kwargs['keydords'] = ','.join([tag.name for tag in Tag.objects.all()])
+        kwargs['descrip'] = '-tags'
+        return super(TopicListView, self).get_context_data(**kwargs)
 
 
 class TagListView(BaseListView):
@@ -75,5 +96,5 @@ class TagListView(BaseListView):
     def get_context_data(self, **kwargs):
         kwargs['title'] = 'Tags - '
         kwargs['keydords'] = ','.join([tag.name for tag in Tag.objects.all()])
-        kwargs['descrip'] = '-标签'
+        kwargs['descrip'] = '-tags'
         return super(TagListView, self).get_context_data(**kwargs)

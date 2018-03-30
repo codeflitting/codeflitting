@@ -14,6 +14,7 @@ class Wisdom(BaseModel):
 
 class Author(BaseModel):
     name = models.CharField('作者', max_length=50)
+    img = models.TextField('图片', null=True, blank=True)
 
     def __str__(self):
         return self.name

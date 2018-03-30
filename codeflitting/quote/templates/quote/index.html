@@ -49,14 +49,16 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            <div class="col-2 hidden-md" style="display: inline-grid;">
-                                <div class="card text-center text-white bg-secondary"
-                                     style="margin:auto;width: 80px;height: 80px;background: #b7b7b7;">
-                                    <h5 class="card-title" style="margin: auto;">
-                                        <a style="color:#ffffff" href="{% url 'quote-topic' wisdom.topic.id %}">{{ wisdom.topic }}</a>
-                                    </h5>
-                                </div>
-                            </div>
+                            {% if wisdom.author %}
+                                {% if wisdom.author.img %}
+                                    <div class="col-2 hidden-md" style="display: inline-grid;">
+                                        <div class="text-center"
+                                             style="margin:auto">
+                                            <img src="{{ wisdom.author.img }}" height="100" width="80">
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
                         </div>
                     </div>
                 {% endfor %}

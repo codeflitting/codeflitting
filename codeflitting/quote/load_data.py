@@ -1,7 +1,6 @@
 from codeflitting.quote.models import Author, Wisdom, Tag, Topic
-
-
-# english----chinese----tag1,tag2----author
+from django.utils import timezone
+import time, datetime
 
 
 def get_tag_set(s):
@@ -37,22 +36,38 @@ def get_wisdom(s1, s2):
     return Wisdom.objects.create(english=s1, chinese=s2)
 
 
+def get_strptime(str1):
+    strptime = time.mktime(time.strptime(str1, '%Y-%m-%d'))
+    return strptime
+
+
+def get_datetime(timestamp):
+    dt = datetime.datetime.fromtimestamp(timestamp, tz=timezone.utc)
+    return dt
+
+
 def insert_data(file_path):
     with open(file_path) as f:
         for line in f.readlines():
             line = line.strip('\n')
-            english, chinese, author, topic, created_time, last_modified_time = line.split('###')[:6]
+            english, chinese, author, topic, tags, created_time = line.split('###')[:6]
             wisdom = get_wisdom(english, chinese)
-            if author != '':
-                author = Author.objects.get_or_create(name=author)[0]
-                wisdom.author = author
+            if author == '':
+                author = '佚名'
+            author = Author.objects.get_or_create(name=author)[0]
+            wisdom.author = author
+
             if topic != '':
                 topic = Topic.objects.get_or_create(name=topic)[0]
                 wisdom.topic = topic
-            # wisdom.created_time = created_time
-            # wisdom.last_modified_time = last_modified_time
-            print(type(wisdom.created_time))
+            print(created_time)
+            if created_time != '':
+                dt = get_datetime(get_strptime(created_time))
+                wisdom.last_modified_time = dt
+                wisdom.save()
+                wisdom.created_time = dt
+                wisdom.save()
+            tags = get_tag_set(tags)
+            if len(tags) > 0:
+                wisdom.tags.set(tags)
             wisdom.save()
-            # tags = get_tag_set(tags)
-            # if len(tags) > 0:
-            #    wisdom.tags.set(tags)

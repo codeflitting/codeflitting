@@ -8,7 +8,7 @@ class BaseModel(models.Model):
 
     class Meta:
         # 定义抽象类,用它来归纳一些公共属性字段
-        ordering = ['-last_modified_time']
+        ordering = ['-created_time']
         abstract = True
 
     def get_absolute_url(self):

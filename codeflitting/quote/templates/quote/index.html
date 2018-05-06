@@ -13,31 +13,29 @@
 {% block content %}
     {{ block.super }}
     {% include 'html-units/header.html' %}
-
     <div class="container" style="font-size: 13.75px;">
         <div class="row py-5">
             <div class="col-2 hidden-md"></div>
-            <div class="col-12 col-md-10" style="display: block;background-color: #fdfdfe   ">
+            <div class="col-12 col-md-10"
+                 style="display: block;background-color: #fdfdfe;box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
                 {% for wisdom in wisdom_list %}
-                    <div class="py-3 nav-tabs">
+                    <div class="py-4 nav-tabs">
                         <div class="row" style="position: relative">
-                            <div class="col-12 col-md-10">
+                            <div class="col-12 col-md-12">
                                 {% if wisdom.english %}
                                     <p>{{ wisdom.english }}</p>
                                 {% endif %}
                                 {% if wisdom.chinese %}
                                     <p class="list-group-item-light">{{ wisdom.chinese }}</p>
                                 {% endif %}
-                                <div style="bottom: -15px;position: absolute; font-size: smaller;">
+                                <div style="bottom: -25px;position: absolute; font-size: smaller;">
                                     <i class="fa fa-fw fa-calendar-check-o"></i>
-                                    {{ wisdom.last_modified_time | date:"F j" }}
-                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {{ wisdom.created_time | date:"F j" }}
                                     {% if wisdom.author %}
                                         <i class="fa fa-fw fa-user"></i>
                                         <a class="hvr-bounce-in" href="{% url 'quote-author' wisdom.author.id %}">
                                             <span>{{ wisdom.author }}</span>
                                         </a>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {% endif %}
                                     {% if wisdom.tags.all %}
                                         <i class="fa fa-fw fa-tags"></i>
@@ -49,16 +47,16 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            {% if wisdom.author %}
-                                {% if wisdom.author.img %}
-                                    <div class="col-2 hidden-md" style="display: inline-grid;">
-                                        <div class="text-center"
-                                             style="margin:auto">
-                                            <img src="{{ wisdom.author.img }}" height="100" width="80">
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            {% endif %}
+                            {#                            {% if wisdom.author %}#}
+                            {#                                {% if wisdom.author.img %}#}
+                            {#                                    <div class="col-2 hidden-md" style="display: inline-grid;">#}
+                            {#                                        <div class="text-center"#}
+                            {#                                             style="margin:auto">#}
+                            {#                                            <img src="{{ wisdom.author.img }}" height="100" width="80">#}
+                            {#                                        </div>#}
+                            {#                                    </div>#}
+                            {#                                {% endif %}#}
+                            {#                            {% endif %}#}
                         </div>
                     </div>
                 {% endfor %}

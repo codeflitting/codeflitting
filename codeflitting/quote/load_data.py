@@ -41,7 +41,7 @@ def insert_data(file_path):
     with open(file_path) as f:
         for line in f.readlines():
             line = line.strip('\n')
-            english, chinese, author, topic = line.split('###')[:4]
+            english, chinese, author, topic, created_time, last_modified_time = line.split('###')[:6]
             wisdom = get_wisdom(english, chinese)
             if author != '':
                 author = Author.objects.get_or_create(name=author)[0]
@@ -49,6 +49,9 @@ def insert_data(file_path):
             if topic != '':
                 topic = Topic.objects.get_or_create(name=topic)[0]
                 wisdom.topic = topic
+            # wisdom.created_time = created_time
+            # wisdom.last_modified_time = last_modified_time
+            print(type(wisdom.created_time))
             wisdom.save()
             # tags = get_tag_set(tags)
             # if len(tags) > 0:

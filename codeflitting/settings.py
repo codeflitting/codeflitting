@@ -56,10 +56,10 @@ ROOT_URLCONF = 'codeflitting.urls'
 
 TEMPLATES = [
     {
-        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
-        'DIRS'    : [],
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
         'APP_DIRS': True,
-        'OPTIONS' : {
+        'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'codeflitting.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
-        'NAME'    : 'codeflitting',
-        'USER'    : 'postgres',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'codeflitting',
+        'USER': 'postgres',
         'PASSWORD': '123456',
-        'HOST'    : '',
-        'PORT'    : '',
+        'HOST': '',
+        'PORT': '',
     }
 }
 
@@ -137,5 +137,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 # Crontab tasks
 
 CRONJOBS = [
-    ('*/1 * * * *', 'codeflitting.quote.crontab.get_quote_everyday', '>>/tmp/get_quote_everyday.log')
+    ('*/1 * * * *', 'codeflitting.quote.crontab.spider_today_quote', '>>/tmp/spider_today_quote.log')
 ]
+
+#
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000

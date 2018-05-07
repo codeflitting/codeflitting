@@ -21,14 +21,14 @@
                 {% for wisdom in wisdom_list %}
                     <div class="py-4 nav-tabs">
                         <div class="row" style="position: relative">
-                            <div class="col-12 col-md-12">
+                            <div class="col-12 col-md-12" style="font-size: initial;">
                                 {% if wisdom.english %}
                                     <p>{{ wisdom.english }}</p>
                                 {% endif %}
                                 {% if wisdom.chinese %}
                                     <p class="list-group-item-light">{{ wisdom.chinese }}</p>
                                 {% endif %}
-                                <div style="bottom: -25px;position: absolute; font-size: smaller;">
+                                <div style="bottom: -25px;position: absolute; font-size: x-small;">
                                     <i class="fa fa-fw fa-calendar-check-o"></i>
                                     {{ wisdom.created_time | date:"F j" }}
                                     {% if wisdom.author %}

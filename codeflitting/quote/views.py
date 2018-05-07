@@ -37,6 +37,24 @@ class WisdomListView(BaseListView):
         return wisdom_list
 
 
+class WisdomDetailView(DetailView):
+    model = Wisdom
+    template_name = "quote/detail.html"
+    context_object_name = "wisdom"
+    pk_url_kwarg = 'wisdom_id'
+
+    def get_object(self, queryset=None):
+        wisdom = super(WisdomDetailView, self).get_object()
+        wisdom.created_time = wisdom.created_time.strftime('%Y-%m-%d')
+        return wisdom
+
+    def get_context_data(self, **kwargs):
+        kwargs['site_name'] = 'quotes'
+        kwargs['site_url'] = 'quote-index'
+
+        return super(WisdomDetailView, self).get_context_data(**kwargs)
+
+
 class AuthorListView(BaseListView):
     template_name = 'quote/index.html'
     context_object_name = 'author_list'

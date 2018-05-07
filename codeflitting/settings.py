@@ -56,10 +56,10 @@ ROOT_URLCONF = 'codeflitting.urls'
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'BACKEND' : 'django.template.backends.django.DjangoTemplates',
+        'DIRS'    : [],
         'APP_DIRS': True,
-        'OPTIONS': {
+        'OPTIONS' : {
             'context_processors': [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'codeflitting.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'codeflitting',
-        'USER': 'postgres',
+        'ENGINE'  : 'django.db.backends.postgresql_psycopg2',
+        'NAME'    : 'codeflitting',
+        'USER'    : 'postgres',
         'PASSWORD': '123456',
-        'HOST': '',
-        'PORT': '',
+        'HOST'    : '',
+        'PORT'    : '',
     }
 }
 

@@ -1,0 +1,25 @@
+{% extends 'quote/base.html' %}
+{% load static %}
+{% load compress %}
+
+{% block title %}
+    {% if quote_title %}
+        {{ quote_title }} - {{ block.super }}
+    {% else %}
+        {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    {{ block.super }}
+    {% include 'html-units/header.html' %}
+    <div class="container">
+        <br>
+        <br>
+        <div class="content">
+            <h1>The cure for pain is in the pain.</h1>
+            <h2>老干爹是不可战胜的</h2>
+            <h3 style="color: #9b9b9b;">-- chenpengyu</h3>
+        </div>
+    </div>
+{% endblock %}

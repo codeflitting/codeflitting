@@ -1,8 +1,9 @@
 from django.conf.urls import url
-from codeflitting.quote.views import WisdomListView, AuthorListView, TagListView, TopicListView
+from codeflitting.quote.views import WisdomListView, AuthorListView, TagListView, TopicListView, WisdomDetailView
 
 urlpatterns = [
     url(r'^$', WisdomListView.as_view(), name="quote-index"),
+    url(r'^(?P<wisdom_id>\d+)$', WisdomDetailView.as_view(), name='quote-detail'),
     url(r'^tag/(?P<tag_id>\d+)$', WisdomListView.as_view(), name='quote-tag'),
     url(r'^tags', TagListView.as_view(), name='quote-tags'),
     url(r'^topic/(?P<topic_id>\d+)$', WisdomListView.as_view(), name='quote-topic'),

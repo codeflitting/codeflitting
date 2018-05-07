@@ -137,7 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfile')
 # Crontab tasks
 
 CRONJOBS = [
-    ('*/1 * * * *', 'codeflitting.quote.crontab.spider_today_quote', '>>/tmp/spider_today_quote.log')
+    ('0 2 * * *', 'codeflitting.quote.crontab.spider_today_quote', '>>/tmp/spider_today_quote.log')
 ]
 
 #

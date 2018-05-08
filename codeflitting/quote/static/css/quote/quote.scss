@@ -1,5 +1,6 @@
 .body {
-
+  //background: url("http://upload.wikimedia.org/wikipedia/commons/a/ae/Castle_Neuschwanstein.jpg") 0/cover fixed;
+  height: 100%;
 }
 
 [class^="hvr-"] {
@@ -18,5 +19,61 @@
 
 .navbar {
   background-color: #fdfdfe;
+}
+
+.frosted-effect {
+  min-height: 80vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1em;
+  padding-top: 8em;
+  font: 150%/1.6 Baskerville, Palatino, serif;
+}
+
+.frosted-effect, .frosted-glass::before {
+  background: url("http://upload.wikimedia.org/wikipedia/commons/a/ae/Castle_Neuschwanstein.jpg") 0/cover fixed;
+}
+
+.frosted-glass {
+  z-index: 4;
+  text-align: center;
+  position: relative;
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 40em;
+  background: rgba(255, 255, 255, 0.25) border-box;
+  overflow: hidden;
+  border-radius: .3em;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.3);
+  font-family: 'Futura', sans-serif;
+}
+
+.frosted-glass::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.frosted-glass p:last-of-type {
+  text-align: right;
+  font-style: italic;
+}
+
+.frosted-glass p:last-of-type span {
+  font-weight: bold;
+}
+
+.frosted-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: -30px;
+  z-index: -1;
+  -webkit-filter: blur(15px);
+  filter: blur(15px);
 }
 

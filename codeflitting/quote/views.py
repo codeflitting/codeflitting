@@ -36,6 +36,10 @@ class WisdomListView(BaseListView):
             wisdom_list = wisdom_list.filter(Q(english__contains=query) | Q(chinese__contains=query))
         return wisdom_list
 
+    def get_context_data(self, **kwargs):
+        kwargs['descrip'] = 'Famous Quotes'
+        return super(WisdomListView, self).get_context_data(**kwargs)
+
 
 class WisdomDetailView(DetailView):
     model = Wisdom
@@ -49,8 +53,12 @@ class WisdomDetailView(DetailView):
         return wisdom
 
     def get_context_data(self, **kwargs):
-        kwargs['site_name'] = 'quotes'
-        kwargs['site_url'] = 'quote-index'
+        kwargs['descrip'] = kwargs['object'].english + '--' + kwargs['object'].chinese
+        kwargs['keydords'] = kwargs['object'].author
+        if kwargs['object'].author:
+            kwargs['title'] = kwargs['object'].author.name + "'s Quotes"
+        else:
+            kwargs['title'] = 'Quotes Details'
 
         return super(WisdomDetailView, self).get_context_data(**kwargs)
 
@@ -76,7 +84,7 @@ class AuthorListView(BaseListView):
     def get_context_data(self, **kwargs):
         kwargs['title'] = 'Authors - '
         kwargs['keydords'] = ','.join([author.name for author in Author.objects.all()])
-        kwargs['descrip'] = '-author'
+        kwargs['descrip'] = 'Authors'
         return super(AuthorListView, self).get_context_data(**kwargs)
 
 
@@ -93,9 +101,9 @@ class TopicListView(BaseListView):
         return topic_list
 
     def get_context_data(self, **kwargs):
-        kwargs['title'] = 'Tags - '
-        kwargs['keydords'] = ','.join([tag.name for tag in Tag.objects.all()])
-        kwargs['descrip'] = '-tags'
+        kwargs['title'] = 'Topics - '
+        kwargs['keydords'] = ','.join([topic.name for topic in Topic.objects.all()])
+        kwargs['descrip'] = 'Topics'
         return super(TopicListView, self).get_context_data(**kwargs)
 
 
@@ -114,5 +122,5 @@ class TagListView(BaseListView):
     def get_context_data(self, **kwargs):
         kwargs['title'] = 'Tags - '
         kwargs['keydords'] = ','.join([tag.name for tag in Tag.objects.all()])
-        kwargs['descrip'] = '-tags'
+        kwargs['descrip'] = 'Tags'
         return super(TagListView, self).get_context_data(**kwargs)

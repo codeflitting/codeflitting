@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load compress %}
-{% block title %}{{ title }}Quote - {{ block.super }}{% endblock %}
-{% block keywords %}{{ block.super }},quotes,{{ keydords }}{% endblock %}
-{% block descrip %}{{ block.super }}:quotes{{ descrip }}{% endblock %}
+{% block title %}{{ title }}Quotes - {{ block.super }}{% endblock %}
+{% block keywords %}{{ keydords }},wisdom,双语名言,名言,警句,{{ block.super }}{% endblock %}
+{% block descrip %}{{ descrip }} at {{ block.super }}{% endblock %}
 {% block css %}
     {{ block.super }}
     {% compress css %}

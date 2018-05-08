@@ -1,25 +1,28 @@
 {% extends 'quote/base.html' %}
 {% load static %}
 {% load compress %}
-
-{% block title %}
-    {% if quote_title %}
-        {{ quote_title }} - {{ block.super }}
-    {% else %}
-        {{ block.super }}
-    {% endif %}
-{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block keywords %}{{ keydords }},wisdom,双语名言,名言,警句,{{ block.super }}{% endblock %}
+{% block descrip %}{{ descrip }}{% endblock %}
 
 {% block content %}
-    {{ block.super }}
-    {% include 'html-units/header.html' %}
-    <div class="container">
-        <br>
-        <br>
-        <div class="content">
-            <h1>The cure for pain is in the pain.</h1>
-            <h2>老干爹是不可战胜的</h2>
-            <h3 style="color: #9b9b9b;">-- chenpengyu</h3>
+    <div class="frosted-effect">
+        <div class="frosted-glass">
+            {% if wisdom.english %}
+                <p>{{ wisdom.english }}</p>
+            {% endif %}
+            {% if wisdom.chinese %}
+                <p>{{ wisdom.chinese }}</p>
+            {% endif %}
+            {% if wisdom.author %}
+                <p>--
+                    <a href="{% url 'quote-author'  wisdom.author.id %}">
+                        {{ wisdom.author }}
+                    </a>
+                </p>
+            {% else %}
+                <p>---- 佚名</p>
+            {% endif %}
         </div>
     </div>
 {% endblock %}

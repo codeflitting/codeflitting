@@ -25,8 +25,6 @@
                                     {% endif %}
                                 </a>
                                 <div style="bottom: -25px;position: absolute; font-size: x-small;">
-                                    <i class="fa fa-fw fa-calendar-check-o"></i>
-                                    {{ wisdom.created_time | date:"F j" }}
                                     {% if wisdom.author %}
                                         <i class="fa fa-fw fa-user"></i>
                                         <a class="hvr-bounce-in" href="{% url 'quote-author' wisdom.author.id %}">
@@ -50,8 +48,8 @@
                                         <span class="minutes" style="transform: rotate(300.392deg);"></span>
                                     </div>
                                     <div class="date">
-                                        <div id="daymonth">May 10</div>
-                                        <div id="year">2018</div>
+                                        <div id="daymonth">{{ wisdom.created_time | date:"F j" }}</div>
+                                        <div id="year">{{ wisdom.created_time | date:"Y" }}</div>
                                     </div>
                                 </div>
                             </div>

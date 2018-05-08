@@ -14,7 +14,7 @@
                     <div class="py-4 nav-tabs"
                          style="box-shadow: 0 0 0px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(218, 218, 218, 0.24);">
                         <div class="row" style="position: relative;">
-                            <div class="col-12 col-md-12" style="font-size: initial;">
+                            <div class="col-12 col-md-10" style="font-size: initial;">
                                 <a href="{% url 'quote-detail' wisdom.id %}" class="hvr-wobble-top"
                                    style="text-decoration: none;">
                                     {% if wisdom.english %}
@@ -43,16 +43,18 @@
                                     {% endif %}
                                 </div>
                             </div>
-                            {#                            {% if wisdom.author %}#}
-                            {#                                {% if wisdom.author.img %}#}
-                            {#                                    <div class="col-2 hidden-md" style="display: inline-grid;">#}
-                            {#                                        <div class="text-center"#}
-                            {#                                             style="margin:auto">#}
-                            {#                                            <img src="{{ wisdom.author.img }}" height="100" width="80">#}
-                            {#                                        </div>#}
-                            {#                                    </div>#}
-                            {#                                {% endif %}#}
-                            {#                            {% endif %}#}
+                            <div class="col-2 hidden-lg" style="display: inline-grid;">
+                                <div class="date-box">
+                                    <div class="clock">
+                                        <span class="hours" style="transform: rotate(191.392deg);"></span>
+                                        <span class="minutes" style="transform: rotate(300.392deg);"></span>
+                                    </div>
+                                    <div class="date">
+                                        <div id="daymonth">May 10</div>
+                                        <div id="year">2018</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}

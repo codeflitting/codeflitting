@@ -28,13 +28,13 @@
   margin: 0;
   padding-top: 10em;
   font: 150%/1.6 Baskerville, Palatino, serif;
-  a{
+  a {
     color: #ffffff;
   }
 }
 
 .frosted-effect, .frosted-glass::before {
-  background: url("../../img/background/1.jpg") 0/cover fixed;
+  background: url("../../img/background/current.png") 0/cover fixed;
 }
 
 .frosted-glass {
@@ -82,6 +82,7 @@
 
 .date-box {
   width: 80px;
+  max-height: 80px;
   text-align: center;
   background: #d8d8d8;
   border-radius: 5px;

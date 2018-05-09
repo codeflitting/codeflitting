@@ -22,12 +22,15 @@
 }
 
 .frosted-effect {
+  color: #ffffff;
   min-height: 80vh;
   box-sizing: border-box;
   margin: 0;
-  padding: 1em;
-  padding-top: 8em;
+  padding-top: 10em;
   font: 150%/1.6 Baskerville, Palatino, serif;
+  a{
+    color: #ffffff;
+  }
 }
 
 .frosted-effect, .frosted-glass::before {
@@ -78,7 +81,7 @@
 }
 
 .date-box {
-  width: 100px;
+  width: 80px;
   text-align: center;
   background: #d8d8d8;
   border-radius: 5px;
@@ -101,10 +104,10 @@
   background-color: #D75B42;
   border: 0.2em solid white;
   border-radius: 100%;
-  height: 60px;
-  margin-top: -40%;
+  height: 40px;
+  margin-top: -50%;
   position: relative;
-  width: 60px;
+  width: 40px;
 }
 
 .clock span {

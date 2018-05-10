@@ -139,7 +139,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafile')
 # Crontab tasks
 
 CRONJOBS = [
-    ('0 2 * * *', 'codeflitting.quote.crontab.spider_today_quote', '>>/tmp/spider_today_quote.log')
+    ('0 5 * * *', 'codeflitting.quote.crontab.spider_today_quote', '>>/tmp/spider_today_quote.log')
 ]
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000

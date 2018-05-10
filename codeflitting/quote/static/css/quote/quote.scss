@@ -1,6 +1,8 @@
+$randomNumber: random(121);
+
 .body {
-  //background: url("http://upload.wikimedia.org/wikipedia/commons/a/ae/Castle_Neuschwanstein.jpg") 0/cover fixed;
-  height: 100%;
+  background: url("../img/background/" + $randomNumber + ".png") 0/cover fixed;
+  background-size: 115%;
 }
 
 [class^="hvr-"] {
@@ -34,7 +36,8 @@
 }
 
 .frosted-effect, .frosted-glass::before {
-  background: url("../../img/background/current.png") 0/cover fixed;
+  background: url("../img/background/" + $randomNumber + ".png") 0/cover fixed;
+  background-size: 115%;
 }
 
 .frosted-glass {
@@ -82,7 +85,7 @@
 
 .date-box {
   width: 80px;
-  max-height: 80px;
+  height: 80px;
   text-align: center;
   background: #d8d8d8;
   border-radius: 5px;

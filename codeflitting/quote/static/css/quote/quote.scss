@@ -1,8 +1,9 @@
 $randomNumber: random(121);
 
-.body {
-  background: url("../img/background/" + $randomNumber + ".png") 0/cover fixed;
+body {
+  background: url("../../img/background/" + $randomNumber + ".png") 0/cover fixed;
   background-size: 115%;
+
 }
 
 [class^="hvr-"] {
@@ -36,7 +37,7 @@ $randomNumber: random(121);
 }
 
 .frosted-effect, .frosted-glass::before {
-  background: url("../img/background/" + $randomNumber + ".png") 0/cover fixed;
+  background: url("../../img/background/" + $randomNumber + ".png") 0/cover fixed;
   background-size: 115%;
 }
 

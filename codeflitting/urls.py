@@ -20,10 +20,14 @@ from django.contrib.sitemaps.views import sitemap
 
 from codeflitting.quote.models import Author as QuoteAuthor
 from codeflitting.quote.models import Tag as QuoteTag
+from codeflitting.quote.models import Wisdom as QuoteWisdom
+from codeflitting.quote.models import Topic as QuoteTopic
 
 sitemaps = {
-    'quote:author': GenericSitemap({'queryset': QuoteAuthor.objects.all(), 'date_field': 'last_modified_time'}, priority=0.6),
-    'quote:tag'   : GenericSitemap({'queryset': QuoteTag.objects.all(), 'date_field': 'last_modified_time'}, priority=0.6),
+    'quote:wisdom': GenericSitemap({'queryset': QuoteWisdom.objects.all(), 'date_field': 'created_time'}, priority=0.9),
+    'quote:topic': GenericSitemap({'queryset': QuoteTopic.objects.all(), 'date_field': 'created_time'}, priority=0.7),
+    'quote:author': GenericSitemap({'queryset': QuoteAuthor.objects.all(), 'date_field': 'created_time'}, priority=0.5),
+    'quote:tag': GenericSitemap({'queryset': QuoteTag.objects.all(), 'date_field': 'created_time'}, priority=0.3),
     # 如果还要加其它的可以模仿上面的
 }
 

@@ -1,4 +1,4 @@
-django==2.0.12
+django==2.2.10
 django-crontab==0.7.1
 django_compressor==2.2
 django-libsass==0.7
